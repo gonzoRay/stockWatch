@@ -1,0 +1,27 @@
+{
+  "name": "stockwatch",
+  "version": "0.0.1",
+  "description": "Example project demonstrating basic jQuery use to provide stock quote lookup from Yahoo Finance API. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gonzoRay/stockWatch.git"
+  },
+  "keywords": [
+    "jquery",
+    "stock",
+    "yahoo",
+    "finance",
+    "example",
+    "bootstrap"
+  ],
+  "author": "Reagan Cooper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gonzoRay/stockWatch/issues"
+  },
+  "homepage": "https://github.com/gonzoRay/stockWatch#readme"
+}

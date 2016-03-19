@@ -1,0 +1,7 @@
+#Components/Packages
+bower_components
+node_modules
+
+#Webstorm
+.idea
+
