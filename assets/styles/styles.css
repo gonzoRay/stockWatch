@@ -9,3 +9,11 @@
 .stock-info {
 
 }
+
+.stock-last-traded {
+    font-style: italic;
+}
+
+.error-info {
+    padding-top: 25px;
+}
