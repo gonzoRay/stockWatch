@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $('.search-bar button').click(function () {
+    $('.search-bar button').click(function (e) {
+        e.preventDefault();
         var userInput = $('#stockInputSymbol').val();
         lookupStock(userInput);
     });
@@ -15,16 +16,12 @@ $(document).ready(function () {
         $.get(stockUrl, function (data, status) {
             var response = data.query.results.quote;
 
-            $('.stock-info .stock-name').text(response.Symbol);
-            $('.stock-info .stock-desc').text(response.Name);
-            $('.stock-info .stock-price').text(response.Ask);
-            $('.stock-info .stock-price-change').text(response.Change);
-
-            if (isPriceChangePositive(response.Change)) {
-                $('.stock-info .stock-price-change').toggleClass();
+            if(status === 200) {
+                $('.stock-info .stock-name').text(response.Symbol);
+                $('.stock-info .stock-desc').text(response.Name);
+                $('.stock-info .stock-price').text(response.Ask);
+                $('.stock-info .stock-price-change').text(response.Change);
             }
-
-            console.log(response);
         });
     }
 
