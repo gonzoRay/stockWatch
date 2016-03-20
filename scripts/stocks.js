@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('.search-bar button').click(function (e) {
+    $('.search-bar button').click(function () {
         var userInput = $('#stockInputSymbol').val();
         lookupStock(userInput);
     });
