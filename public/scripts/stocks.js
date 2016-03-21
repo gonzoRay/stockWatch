@@ -6,14 +6,9 @@ $(document).ready(function () {
     });
 
     function lookupStock(symbol) {
-        var stockUrl = ['https://query.yahooapis.com/v1/public/yql?q=',
-            encodeURIComponent('select * from yahoo.finance.quotes '),
-            encodeURIComponent('where symbol in (\'' + symbol + '\')'),
-            '&format=json&diagnostics=true&env=',
-            encodeURIComponent('store://datatables.org/alltableswithkeys')]
-            .join('');
+        var requestUrl = '/api/quote/' + symbol;
 
-        $.get(stockUrl, function (data, status) {
+        $.get(requestUrl, function (data, status) {
             var response = data.query.results.quote;
 
             if(status === 'success' && response && response.Name) {

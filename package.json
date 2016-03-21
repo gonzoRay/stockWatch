@@ -4,6 +4,7 @@
   "description": "Example project demonstrating basic jQuery use to provide stock quote lookup from Yahoo Finance API. ",
   "main": "index.html",
   "scripts": {
+    "server": "node.exe server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
