@@ -3,7 +3,7 @@ var express = require('express'),
     request = require('request'),
     path = require('path');
 
-app.use('/npm', express.static(path.join(__dirname, '/node_modules')));
+app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/', function (req, res) {
