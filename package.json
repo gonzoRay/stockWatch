@@ -4,6 +4,7 @@
   "description": "Example project demonstrating basic jQuery use to provide stock quote lookup from Yahoo Finance API. ",
   "main": "index.html",
   "scripts": {
+    "server": "node.exe server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +27,8 @@
   "homepage": "https://github.com/gonzoRay/stockWatch#readme",
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "jquery": "^2.2.2"
+    "express": "^4.13.4",
+    "jquery": "^2.2.2",
+    "request": "^2.69.0"
   }
 }
