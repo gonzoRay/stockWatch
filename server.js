@@ -1,7 +1,8 @@
 var express = require('express'),
     app = express(),
     request = require('request'),
-    path = require('path');
+    path = require('path'),
+    yahooApiUrlService = require('./yahooApiUrlService');
 
 app.use('/node_modules', express.static(path.join(__dirname, '/node_modules')));
 app.use(express.static(path.join(__dirname, '/public')));
@@ -15,7 +16,7 @@ app.get('/hello', function (req, res) {
 });
 
 app.get('/api/quote/:symbol', function (req, res) {
-    var stockUrl = generateRequestUrl(req.params.symbol);
+    var stockUrl = yahooApiUrlService.generateRequestUrl(req.params.symbol);
 
     request(stockUrl, function (error, response, body) {
         if (!error && response.statusCode == 200) {
@@ -31,6 +32,7 @@ app.listen(8081, function () {
 });
 
 //Helper functions
+/*
 function generateRequestUrl(symbol) {
     var baseUrl = 'https://query.yahooapis.com/v1/public/yql?q=';
 
@@ -42,4 +44,4 @@ function generateRequestUrl(symbol) {
         encodeURIComponent('store://datatables.org/alltableswithkeys')
     ]
         .join('');
-}
+}*/
