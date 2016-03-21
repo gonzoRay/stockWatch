@@ -1,7 +1,8 @@
 var express = require('express'),
     app = express(),
     request = require('request'),
-    path = require('path');
+    path = require('path'),
+    yahooApiService = require('./YahooApiUrlService.js');
 
 app.use('/npm', express.static(path.join(__dirname, '/node_modules')));
 app.use(express.static(path.join(__dirname, '/public')));
@@ -16,14 +17,9 @@ app.get('/hello', function (req, res) {
 
 app.get('/api/quote/:symbol', function (req, res) {
     var symbol = req.params.symbol;
-    var stockUrl = ['https://query.yahooapis.com/v1/public/yql?q=',
-        encodeURIComponent('select * from yahoo.finance.quotes '),
-        encodeURIComponent('where symbol in (\'' + symbol + '\')'),
-        '&format=json&diagnostics=true&env=',
-        encodeURIComponent('store://datatables.org/alltableswithkeys')]
-        .join('');
+    var quoteUrl = yahooApiService.generateStockQuoteUrl(symbol);
 
-    request(stockUrl, function (error, response, body) {
+    request(quoteUrl, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             res.send(JSON.parse(body));
         } else {
