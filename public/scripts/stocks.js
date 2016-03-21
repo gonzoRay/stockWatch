@@ -1,7 +1,13 @@
 $(document).ready(function () {
     $('.search-bar button').click(function (e) {
         e.preventDefault();
+
         var userInput = $('#stockInputSymbol').val();
+        if(!userInput){
+            setError('Please enter a valid stock symbol.')
+            return;
+        }
+        clearError();
         lookupStock(userInput);
     });
 
