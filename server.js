@@ -2,7 +2,7 @@ var express = require('express'),
     app = express(),
     request = require('request'),
     path = require('path'),
-    yahooApiService = require('./YahooApiUrlService.js');
+    yahooApiService = require('./YahooApiUrlService');
 
 app.use('/npm', express.static(path.join(__dirname, '/node_modules')));
 app.use(express.static(path.join(__dirname, '/public')));
