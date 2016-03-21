@@ -15,13 +15,7 @@ app.get('/hello', function (req, res) {
 });
 
 app.get('/api/quote/:symbol', function (req, res) {
-    var symbol = req.params.symbol;
-    var stockUrl = ['https://query.yahooapis.com/v1/public/yql?q=',
-        encodeURIComponent('select * from yahoo.finance.quotes '),
-        encodeURIComponent('where symbol in (\'' + symbol + '\')'),
-        '&format=json&diagnostics=true&env=',
-        encodeURIComponent('store://datatables.org/alltableswithkeys')]
-        .join('');
+    var stockUrl = generateRequestUrl(req.params.symbol);
 
     request(stockUrl, function (error, response, body) {
         if (!error && response.statusCode == 200) {
@@ -35,3 +29,17 @@ app.get('/api/quote/:symbol', function (req, res) {
 app.listen(8081, function () {
     console.log('stockWatch app listening at: http://localhost:8081/');
 });
+
+//Helper functions
+function generateRequestUrl(symbol) {
+    var baseUrl = 'https://query.yahooapis.com/v1/public/yql?q=';
+
+    return [
+        baseUrl,
+        encodeURIComponent('select * from yahoo.finance.quotes '),
+        encodeURIComponent('where symbol in (\'' + symbol + '\')'),
+        '&format=json&diagnostics=true&env=',
+        encodeURIComponent('store://datatables.org/alltableswithkeys')
+    ]
+        .join('');
+}

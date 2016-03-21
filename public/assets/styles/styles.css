@@ -10,6 +10,11 @@
 
 }
 
+.stock-last-traded-container {
+    padding-top: 75px;
+    text-align: center;
+}
+
 .stock-last-traded {
     font-style: italic;
 }
