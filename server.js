@@ -38,7 +38,7 @@ function generateRequestUrl(symbol) {
         baseUrl,
         encodeURIComponent('select * from yahoo.finance.quotes '),
         encodeURIComponent('where symbol in (\'' + symbol + '\')'),
-        '&format=json&diagnostics=true&env=',
+        '&format=json&diagnostics=false&env=',
         encodeURIComponent('store://datatables.org/alltableswithkeys')
     ]
         .join('');
