@@ -26,9 +26,7 @@
   },
   "homepage": "https://github.com/gonzoRay/stockWatch#readme",
   "dependencies": {
-    "bootstrap": "^3.3.6",
     "express": "^4.13.4",
-    "jquery": "^2.2.2",
     "request": "^2.69.0"
   }
 }
