@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function() {
     function generateRequestUrl(symbol) {
         var baseUrl = 'https://query.yahooapis.com/v1/public/yql?q=';
